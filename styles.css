@@ -85,3 +85,7 @@
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.off {
+    background-color: rgb(239, 69, 69);
+}

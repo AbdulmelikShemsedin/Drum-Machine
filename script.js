@@ -3,11 +3,18 @@ let power = true;
 
 $('#power').click(() => {
     power = !power;
+    if(power) {
+        $('#power').addClass('off');
+        powerOn();
+    } else {
+        $('#power').removeClass('off');
+        powerOff();
+    }
 })
 
-if(power){
+const powerOn = () => {
     [...array].map((el, i) => {
-        $(el).click(() => {
+        $(el).off('click').click(() => {
             $('.clip')[i].play();
             $('.song-name').html(`<p>${el.id}</p>`)
         })
@@ -23,3 +30,12 @@ if(power){
         })
     })
 }
+
+const powerOff = () => {
+    [...array].map((el) => {
+        $(el).off('click');
+    });
+    $(document).off('keydown');
+}
+
+powerOn();
